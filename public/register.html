@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký Tài Khoản - Your Site</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* CSS TÙY CHỈNH TỪ TRANG ĐĂNG NHẬP */
+        :root {
+            --nike-red: greenyellow;
+            --dark-background: white;
+            --text-color: rgb(0, 0, 0);
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-page {
+            /* Sử dụng lại class cha để giữ nguyên bố cục */
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Phần quảng cáo bên trái */
+        .ad-section {
+            flex: 0 0 50%;
+            /* Chiếm 50% màn hình */
+            background-color: #F5F5DC;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+            position: relative;
+            /* Quan trọng: Để .ad-image là con tuyệt đối */
+            overflow: hidden;
+        }
+
+        /* 💡 Đã sửa: Ảnh nền chiếm 100% diện tích và căn giữa */
+        .ad-image {
+            background-image: url('./assets/image/anhnen.jpg');
+            background-size: cover;
+            background-position: center;
+
+            position: absolute;
+            top: 0;
+            right: 5;
+            bottom: 0;
+            left: 5;
+            /* Đặt lại left về 0 */
+            width: 90%;
+            /* Đặt lại width về 100% */
+            height: 100%;
+            /* Đảm bảo chiếm hết chiều cao */
+        }
+
+        /* Phần form đăng ký bên phải (tương tự như form-section của đăng nhập) */
+        .form-section {
+            flex: 0 0 50%;
+            /* Chiếm 50% màn hình */
+            background-color: var(--dark-background);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+            padding: 20px;
+        }
+
+        .login-card {
+            /* Sử dụng lại class để giới hạn kích thước form */
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Logo (được giữ nguyên) */
+        .logo-placeholder {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* Input Fields Style (được giữ nguyên) */
+        .form-control-custom {
+            background-color: white;
+            /* Nền input tối */
+            color: var(--text-color);
+            border: 1px solid #444444;
+            height: 50px;
+            padding: 10px 15px;
+        }
+
+        .form-control-custom:focus {
+            background-color: white;
+            color: var(--text-color);
+            border-color: #000000;
+            box-shadow: none;
+        }
+
+        /* Nút Đăng Ký Màu Đỏ (dùng lại style của nút đăng nhập) */
+        .btn-nike-red {
+            background-color: var(--nike-red);
+            color: var(--text-color);
+            border: none;
+            padding: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            height: 50px;
+        }
+
+        .btn-nike-red:hover {
+            background-color: #f8f8c3;
+            color: var(--text-color);
+        }
+
+        .link-text {
+            color: #aaaaaa;
+            /* Màu xám nhạt cho chữ */
+        }
+
+        .link-text a {
+            color: var(--text-color);
+            /* Link đăng nhập màu trắng */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Ẩn phần quảng cáo trên màn hình nhỏ (được giữ nguyên) */
+        @media (max-width: 768px) {
+            .ad-section {
+                display: none;
+            }
+
+            .form-section {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-page">
+        <div class="ad-section">
+            <div class="ad-image"></div>
+        </div>
+
+        <div class="form-section">
+            <div class="login-card">
+
+                <div class="logo-placeholder">
+                    <img src="assets/image/logo.png" alt="logo" height="80">
+                </div>
+
+                <h2 class="text-start mb-4">ĐĂNG KÝ TÀI KHOẢN</h2>
+
+                <div id="message" class="alert d-none" role="alert"></div>
+
+                <form id="registerForm">
+                    <div class="mb-3">
+                        <input type="text" class="form-control form-control-custom" id="regUsername"
+                            placeholder="Tên người dùng" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control form-control-custom" id="regEmail"
+                            placeholder="Tài khoản email" required>
+                    </div>
+                    <div class="mb-4">
+                        <input type="password" class="form-control form-control-custom" id="regPassword"
+                            placeholder="Mật khẩu" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control form-control-custom" id="regConfirmPassword"
+                            placeholder="Nhập lại mật khẩu" required>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-nike-red w-100 mb-3">ĐĂNG KÝ</button>
+
+                    <p class="text-center link-text">
+                        Đã có tài khoản ? <a href="login.html">Đăng nhập ngay</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/register_logic.js"></script>
+</body>
+
+</html>
