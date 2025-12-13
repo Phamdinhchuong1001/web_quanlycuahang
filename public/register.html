@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-        /* CSS TÙY CHỈNH TỪ TRANG ĐĂNG NHẬP */
+
         :root {
             --nike-red: greenyellow;
             --dark-background: white;
@@ -24,7 +24,7 @@
         }
 
         .login-page {
-            /* Sử dụng lại class cha để giữ nguyên bố cục */
+ 
             display: flex;
             height: 100vh;
         }
@@ -39,11 +39,11 @@
             align-items: center;
             color: var(--text-color);
             position: relative;
-            /* Quan trọng: Để .ad-image là con tuyệt đối */
+     
             overflow: hidden;
         }
 
-        /* 💡 Đã sửa: Ảnh nền chiếm 100% diện tích và căn giữa */
+   
         .ad-image {
             background-image: url('./assets/image/anhnen.jpg');
             background-size: cover;
@@ -54,14 +54,14 @@
             right: 5;
             bottom: 0;
             left: 5;
-            /* Đặt lại left về 0 */
+       
             width: 90%;
-            /* Đặt lại width về 100% */
+        
             height: 100%;
-            /* Đảm bảo chiếm hết chiều cao */
+          
         }
 
-        /* Phần form đăng ký bên phải (tương tự như form-section của đăng nhập) */
+     
         .form-section {
             flex: 0 0 50%;
             /* Chiếm 50% màn hình */
@@ -74,22 +74,22 @@
         }
 
         .login-card {
-            /* Sử dụng lại class để giới hạn kích thước form */
+     
             width: 100%;
             max-width: 400px;
         }
 
-        /* Logo (được giữ nguyên) */
+    
         .logo-placeholder {
             font-size: 3rem;
             text-align: center;
             margin-bottom: 50px;
         }
 
-        /* Input Fields Style (được giữ nguyên) */
+      
         .form-control-custom {
             background-color: white;
-            /* Nền input tối */
+           
             color: var(--text-color);
             border: 1px solid #444444;
             height: 50px;
@@ -103,7 +103,7 @@
             box-shadow: none;
         }
 
-        /* Nút Đăng Ký Màu Đỏ (dùng lại style của nút đăng nhập) */
+       
         .btn-nike-red {
             background-color: var(--nike-red);
             color: var(--text-color);
@@ -121,12 +121,12 @@
 
         .link-text {
             color: #aaaaaa;
-            /* Màu xám nhạt cho chữ */
+          
         }
 
         .link-text a {
             color: var(--text-color);
-            /* Link đăng nhập màu trắng */
+          
             text-decoration: none;
             font-weight: bold;
         }
@@ -135,7 +135,7 @@
             text-decoration: underline;
         }
 
-        /* Ẩn phần quảng cáo trên màn hình nhỏ (được giữ nguyên) */
+    
         @media (max-width: 768px) {
             .ad-section {
                 display: none;

@@ -26,11 +26,8 @@ const checkAdminRole = (req, res, next) => {
     next();
 };
 
-// Phân quyền Dashboard (Admin và Employee)
+// Phân quyền Dashboard 
 const checkDashboardAccess = (req, res, next) => {
-    if (req.user.role === 'customer') {
-        return res.status(403).json({ message: 'Khách hàng không được phép truy cập Dashboard.' });
-    }
     next();
 };
 

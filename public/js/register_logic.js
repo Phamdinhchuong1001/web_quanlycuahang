@@ -3,22 +3,20 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
     const username = document.getElementById('regUsername').value;
     const email = document.getElementById('regEmail').value;
     const password = document.getElementById('regPassword').value;
-    const confirmPassword = document.getElementById('regConfirmPassword').value; // Lấy giá trị nhập lại mật khẩu
+    const confirmPassword = document.getElementById('regConfirmPassword').value; 
     const messageEl = document.getElementById('message');
 
-    messageEl.classList.add('d-none'); // Ẩn thông báo cũ
+    messageEl.classList.add('d-none'); 
     messageEl.classList.remove('alert-danger', 'alert-success');
 
-    // Kiểm tra mật khẩu có khớp không
     if (password !== confirmPassword) {
         messageEl.textContent = 'Mật khẩu và xác nhận mật khẩu không khớp.';
         messageEl.classList.remove('d-none');
         messageEl.classList.add('alert-danger');
-        return; // Ngừng thực hiện nếu mật khẩu không khớp
+        return; 
     }
 
     try {
-        // Thay thế '/api/auth/register' bằng endpoint thực tế của bạn
         const response = await fetch('/api/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -32,7 +30,6 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
 
         if (response.ok) {
             messageEl.classList.add('alert-success');
-            // Đăng ký thành công, chuyển hướng sau 2 giây
             setTimeout(() => { window.location.href = 'login.html'; }, 2000);
         } else {
             messageEl.classList.add('alert-danger');

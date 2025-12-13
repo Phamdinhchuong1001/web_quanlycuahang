@@ -1,4 +1,4 @@
-// routes/auth.js
+
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
@@ -13,12 +13,10 @@ router.post('/register', async (req, res) => {
 
     if (email.endsWith('@nhanvien.com')) {
         role = 'employee';
-    } else if (email.endsWith('@gmail.com')) {
-        role = 'customer';
-    } else if (email === 'admin@admin.com') { // Ngăn đăng ký tài khoản Admin cố định
+    } else if (email === 'admin@admin.com') { 
         return res.status(400).json({ message: 'Không thể đăng ký tài khoản Admin.' });
     } else {
-        return res.status(400).json({ message: 'Đuôi email không hợp lệ.' });
+        return res.status(400).json({ message: 'Đuôi email không hợp lệ. Chỉ chấp nhận @nhanvien.com.' });
     }
 
     try {
@@ -37,7 +35,7 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// API Đăng Nhập (Không thay đổi)
+// API Đăng Nhập 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 

@@ -8,7 +8,6 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     messageEl.classList.add('d-none');
 
     try {
-        // Thay thế '/api/auth/login' bằng endpoint thực tế của bạn
         const response = await fetch('/api/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
